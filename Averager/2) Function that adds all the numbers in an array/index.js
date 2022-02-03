@@ -13,17 +13,26 @@ adder_three([2, 1, -2]) should return 1
 
 */
 
-let a1 = [1, 2, 3];
-console.log( adder_three( a1 ) ); // this logs 6 since 1 + 2 + 3 is 6
+// let a1 = [5, 2, 1, 7];
+// console.log( adder_three( a1 ) ); // this logs 6 since 1 + 2 + 3 is 6
 
-function adder_three ( _array ) {
+// function adder_three ( _array ) {
+//   let sum = 0;
+//   for ( let i = 0; i < 3; i++ ) { 
+//     sum = sum + _array[i];
+//   }
+//   return sum;
+// }
+
+function adder ( _array ) {
   let sum = 0;
-  for ( let i = 0; i < 3; i++ ) { 
+  for ( let i = 0; i < _array.length; i++ ) { 
     sum = sum + _array[i];
   }
   return sum;
 }
-
+console.log(adder([5, 2, 1, 7]));
+ 
 
 /*
 
@@ -32,7 +41,7 @@ The problem with adder_three is that it only works if the argument is an array o
 You must code a function (adder) that takes any array (with any number of elements)
 as an argument and returns the sum of all those elements. The same as adder_three but it needs to
 work for any array.
-The problem is of course that do not know beforehand how many elements the array will have.
+The problem is of course that we do not know beforehand how many elements the array will have.
 So the for-loop must be different than for ( let i = 0; i < 3; i++ ) { ... }
 We cannot have that 3 in there.
 We need instead to write there the amount of elements the argument has.
