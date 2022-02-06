@@ -14,6 +14,21 @@ function testConsole (p1) {
 }
 
 
+function F25 (container) {
+  for ( let i = 0; i < 25; i++ ) {
+    let tempDiv = document.createElement("div");
+    tempDiv.innerHTML = randomNumber(100);
+    container.appendChild(tempDiv);
+  }
+}
+
+function randomNumber (max) {
+  return Math.floor(max * Math.random());
+}
+
+F25("#gridContainer")
+console.log(F25());
+
 /*
 
 Exercise
