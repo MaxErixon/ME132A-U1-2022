@@ -66,6 +66,39 @@ function getArrayOfSelectedNumbers (className) {
 
 }
 
+function adder ( _array ) {
+  let sum = 0;
+  for ( let i = 0; i < _array.length; i++ ) { 
+    sum = sum + _array[i];
+  }
+  return sum;
+}
+function averg ( _array ) {
+
+  return adder(_array) / _array.length;
+}
+
+
+function updateResults (className) {
+
+  // First get the array of selected numbers
+  let array = getArrayOfSelectedNumbers(className);
+
+  // Create a string from an array:
+  let selected = array.join(",");
+
+  // Calculate stuff
+  let amount = array.length;
+  let sum = adder(array);
+  let average = roundString(averg(array), 1);
+
+  // Update the results
+  document.querySelector("#selected span").innerHTML = selected;
+  document.querySelector("#amount span").innerHTML = amount;
+  document.querySelector("#sum span").innerHTML = sum;
+  document.querySelector("#average span").innerHTML = average;
+
+} 
 
 /*
 
@@ -150,4 +183,84 @@ function roundString(numberWithManyDecimals, decimals){
   var rounded = Math.pow(10, decimals);
   return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
 }
+
+
+
+
+
+
+
+document.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
+window.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
+
+
+
+
+  
+function createNumberDiv () {
+
+  // Create each numberDiv
+  let numberDiv = document.createElement("div");
+  numberDiv.innerHTML = randomNumber(100);
+
+  // The eventListener so that it reacts on click
+  numberDiv.addEventListener("click", function() {
+
+    // Toggle the selected class
+    numberDiv.classList.toggle("selected");
+    
+    numberDiv.addEventListener("click", updateResults("selected"));
+
+  });
+
+  return numberDiv;
+
+}
+
+document.querySelector("button").addEventListener("click", function () {
+
+  let elementReferens = document.querySelector("#grid");
+  let nRows = document.querySelector("#inputRows").value;
+  let nCols = document.querySelector("#inputCols").value;
+
+  gridMaker( elementReferens, nRows, nCols );
+
+  document.querySelector("#selected span").innerHTML = "";
+  document.querySelector("#amount span").innerHTML = "";
+  document.querySelector("#sum span").innerHTML = "";
+  document.querySelector("#average span").innerHTML = "";
+
+});
+
+
+
+
+
+function randomNumber (max) {
+  return Math.floor(max * Math.random());
+}
+ 
+
+
+function gridMaker(gridContainer, R, C) {
+  gridContainer.style.display = "grid";
+
+  gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+  let nTotal = R * C;
+  gridContainer.innerHTML = "";
+  for (let i = 0; i < nTotal; i++) {
+    gridContainer.appendChild( createNumberDiv() );
+  }
+}
+
+document.querySelector("button").addEventListener("click", function () {
+
+  let elementReferens = document.querySelector("#grid");
+  let nRows = document.querySelector("#inputRows").value;
+  let nCols = document.querySelector("#inputCols").value;
+
+  gridMaker( elementReferens, nRows, nCols );
+
+});
 
