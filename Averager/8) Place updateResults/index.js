@@ -71,7 +71,6 @@ function getArrayOfSelectedNumbers (className) {
   return arrayNumbers;
 
 }
-
 function adder ( _array ) {
   let sum = 0;
   for ( let i = 0; i < _array.length; i++ ) { 
@@ -79,6 +78,7 @@ function adder ( _array ) {
   }
   return sum;
 }
+
 function averg ( _array ) {
 
   return adder(_array) / _array.length;
@@ -105,7 +105,6 @@ function updateResults (className) {
   document.querySelector("#average span").innerHTML = average;
 
 } 
-
 
 /*
 
@@ -191,7 +190,6 @@ function roundString(numberWithManyDecimals, decimals){
   return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
 }
 
-
 document.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
 window.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
 
@@ -265,3 +263,4 @@ document.querySelector("button").addEventListener("click", function () {
   gridMaker( elementReferens, nRows, nCols );
 
 });
+

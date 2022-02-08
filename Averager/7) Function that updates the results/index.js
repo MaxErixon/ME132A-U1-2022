@@ -73,6 +73,7 @@ function adder ( _array ) {
   }
   return sum;
 }
+
 function averg ( _array ) {
 
   return adder(_array) / _array.length;
