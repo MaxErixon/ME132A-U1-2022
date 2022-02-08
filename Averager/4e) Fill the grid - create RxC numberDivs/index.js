@@ -45,14 +45,14 @@ function gridMaker (gridContainer, R, C) {
 
   // WITH NESTED LOOPS
   // A loop for the C columns
-  // for (let c = 0; c < C; c++) {
+  for (let c = 0; c < C; c++) {
 
-  //   // For each column we need to create R rows
-  //   for (let r = 0; r < R; r++) {
-  //     gridContainer.appendChild( createNumberDiv() );
-  //   }
+    // For each column we need to create R rows
+    for (let r = 0; r < R; r++) {
+      gridContainer.appendChild( createNumberDiv() );
+    }
 
-  // }
+  }
 
 
   // WITH ONE LOOP

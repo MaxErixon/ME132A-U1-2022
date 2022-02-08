@@ -9,6 +9,10 @@ body {
 
   #top{
       font-size: 30px;
+      background-image: url(pngwing.com.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+   
   }
 
   
@@ -62,6 +66,7 @@ body {
     background-image: url(pngwing.com.png);
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: left;
    
   }
   

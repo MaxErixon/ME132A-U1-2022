@@ -178,7 +178,8 @@ below to always show a number that has one decimal.
 
 
 */
-
+console.log( [1,3,4,10,0,1].join() );
+        console.log( [1,3,4,10,0,1].join(" - ") );
 function roundString(numberWithManyDecimals, decimals){
   // From: https://stackoverflow.com/a/12698296/2027283
   var rounded = Math.pow(10, decimals);
